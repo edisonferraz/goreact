@@ -14,6 +14,7 @@ class Main extends Component {
     repositories: [],
     repositoryError: false,
     loading: false,
+    repositoryLoading: null,
   };
 
   componentDidMount() {
@@ -63,6 +64,7 @@ class Main extends Component {
 
   handleUpdateRepository = async (repository) => {
     const { repositories } = this.state;
+    this.setState({ repositoryLoading: repository.id });
 
     try {
       const repositoryUpdated = await api.getRepository(repository.full_name);
@@ -82,12 +84,18 @@ class Main extends Component {
       );
     } catch (error) {
       console.log(error);
+    } finally {
+      this.setState({ repositoryLoading: null });
     }
   };
 
   render() {
     const {
-      repositoryInput, repositories, repositoryError, loading,
+      repositoryInput,
+      repositories,
+      repositoryError,
+      loading,
+      repositoryLoading,
     } = this.state;
 
     return (
@@ -108,6 +116,7 @@ class Main extends Component {
           repositories={repositories}
           handleRemoveRepository={this.handleRemoveRepository}
           handleUpdateRepository={this.handleUpdateRepository}
+          repositoryLoading={repositoryLoading}
         />
       </Container>
     );

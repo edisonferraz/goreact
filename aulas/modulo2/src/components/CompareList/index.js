@@ -1,10 +1,16 @@
 import React from 'react';
+import { BulletList } from 'react-content-loader';
 import PropTypes from 'prop-types';
 import {
   Container, Repository, BtnRemove, BtnUpdate,
 } from './styles';
 
-const CompareList = ({ repositories, handleRemoveRepository, handleUpdateRepository }) => (
+const CompareList = ({
+  repositories,
+  handleRemoveRepository,
+  handleUpdateRepository,
+  repositoryLoading,
+}) => (
   <Container>
     {repositories.map(repository => (
       <Repository key={repository.id}>
@@ -14,31 +20,40 @@ const CompareList = ({ repositories, handleRemoveRepository, handleUpdateReposit
           <small>{repository.owner.login}</small>
         </header>
 
-        <ul>
-          <li>
-            {repository.stargazers_count}
-            <small>stars</small>
-          </li>
-          <li>
-            {repository.forks_count}
-            <small>forks</small>
-          </li>
-          <li>
-            {repository.open_issues_count}
-            <small>issues</small>
-          </li>
-          <li>
-            {repository.lastCommit}
-            <small>last commit</small>
-          </li>
-          <li>
-            {repository.lastUpdate}
-            <small>last update</small>
-          </li>
-        </ul>
+        {repositoryLoading === repository.id ? (
+          <ul className="loading">
+            <BulletList height={90} width={260} />
+            <BulletList height={90} width={260} />
+          </ul>
+        ) : (
+          <ul>
+            <li>
+              {repository.stargazers_count}
+              <small>stars</small>
+            </li>
+            <li>
+              {repository.forks_count}
+              <small>forks</small>
+            </li>
+            <li>
+              {repository.open_issues_count}
+              <small>issues</small>
+            </li>
+            <li>
+              {repository.lastCommit}
+              <small>last commit</small>
+            </li>
+            <li>
+              {repository.lastUpdate}
+              <small>last update</small>
+            </li>
+          </ul>
+        )}
+
         <BtnRemove title="remove" onClick={() => handleRemoveRepository(repository)}>
           Remove
         </BtnRemove>
+
         <BtnUpdate title="update" onClick={() => handleUpdateRepository(repository)}>
           <i className="fa fa-refresh" />
         </BtnUpdate>
@@ -46,6 +61,10 @@ const CompareList = ({ repositories, handleRemoveRepository, handleUpdateReposit
     ))}
   </Container>
 );
+
+CompareList.defaultProps = {
+  repositoryLoading: null,
+};
 
 CompareList.propTypes = {
   repositories: PropTypes.arrayOf(
@@ -64,6 +83,7 @@ CompareList.propTypes = {
   ).isRequired,
   handleRemoveRepository: PropTypes.func.isRequired,
   handleUpdateRepository: PropTypes.func.isRequired,
+  repositoryLoading: PropTypes.number,
 };
 
 export default CompareList;

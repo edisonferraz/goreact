@@ -42,6 +42,11 @@ export const Repository = styled.div`
 
   ul {
     list-style: none;
+    height: 230px;
+
+    &.loading {
+      padding: 30px 10px 0 20px;
+    }
 
     li {
       font-weight: bold;
