@@ -63,15 +63,16 @@ class Main extends Component {
 
   handleUpdateRepository = async (repository) => {
     const { repositories } = this.state;
-    const repositoryName = `${repository.owner.login}/${repository.name}`;
 
     try {
-      const repositoryUpdated = await api.getRepository(repositoryName);
-      const repositoriesUpdated = repositories.filter(r => r.id !== repositoryUpdated.id);
+      const repositoryUpdated = await api.getRepository(repository.full_name);
+      const repositoriesUpdated = repositories.map(
+        r => (r.id === repositoryUpdated.id ? { ...r, ...repositoryUpdated } : r),
+      );
 
       this.setState(
         {
-          repositories: [...repositoriesUpdated, repositoryUpdated],
+          repositories: repositoriesUpdated,
           repositoryError: false,
         },
         () => {
