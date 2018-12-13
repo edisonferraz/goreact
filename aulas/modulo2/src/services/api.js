@@ -5,6 +5,9 @@ class Api {
   constructor() {
     this.api = axios.create({
       baseURL: 'https://api.github.com',
+      headers: {
+        Authorization: 'token d8b236a6d8c1098d8d21b9cffced843f7088581c',
+      },
     });
   }
 

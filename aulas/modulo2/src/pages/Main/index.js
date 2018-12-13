@@ -39,6 +39,7 @@ class Main extends Component {
           repositoryInput: '',
           repositories: [...repositories, repository],
           repositoryError: false,
+          repositoryLoading: repository.id,
         },
         () => {
           // eslint-disable-next-line react/destructuring-assignment
@@ -48,7 +49,7 @@ class Main extends Component {
     } catch (error) {
       this.setState({ repositoryError: true });
     } finally {
-      this.setState({ loading: false });
+      this.setState({ loading: false, repositoryLoading: null });
     }
   };
 
@@ -56,7 +57,7 @@ class Main extends Component {
     const { repositories } = this.state;
     const repos = repositories.filter(repo => repo.id !== repository.id);
 
-    this.setState({ repositories: [...repos] }, () => {
+    this.setState({ repositories: repos, repositoryLoading: null }, () => {
       // eslint-disable-next-line react/destructuring-assignment
       localStorageSetRepositories(this.state.repositories);
     });
@@ -117,6 +118,7 @@ class Main extends Component {
           handleRemoveRepository={this.handleRemoveRepository}
           handleUpdateRepository={this.handleUpdateRepository}
           repositoryLoading={repositoryLoading}
+          loading={loading}
         />
       </Container>
     );
