@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import MapGL, { Marker } from 'react-map-gl';
 
+import { connect } from 'react-redux';
+
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 class Map extends Component {
@@ -70,4 +72,8 @@ class Map extends Component {
   }
 }
 
-export default Map;
+const mapStateToProps = state => ({
+  markers: state.markers,
+});
+
+export default connect(mapStateToProps)(Map);
