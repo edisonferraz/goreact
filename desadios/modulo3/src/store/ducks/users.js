@@ -2,9 +2,9 @@
  * Actions Types
  */
 export const Types = {
-  ADD_REQUEST: 'markers/ADD_REQUEST',
-  ADD_SUCCESS: 'markers/ADD_SUCCESS',
-  ADD_FAILURE: 'markers/ADD_FAILURE',
+  ADD_REQUEST: 'users/ADD_REQUEST',
+  ADD_SUCCESS: 'users/ADD_SUCCESS',
+  ADD_FAILURE: 'users/ADD_FAILURE',
 };
 
 /**
@@ -16,7 +16,7 @@ const INITIAL_STATE = {
   error: null,
 };
 
-export default function markers(state = INITIAL_STATE, action) {
+export default function users(state = INITIAL_STATE, action) {
   switch (action.type) {
     default:
       return state;
@@ -27,17 +27,17 @@ export default function markers(state = INITIAL_STATE, action) {
  * Actions Creators
  */
 export const Creators = {
-  addMarkerRequest: marker => ({
+  addUserRequest: user => ({
     type: Types.ADD_REQUEST,
-    payload: { marker },
+    payload: { user },
   }),
 
-  addMarkerSuccess: data => ({
+  addUserSuccess: data => ({
     type: Types.ADD_SUCCESS,
     payload: { data },
   }),
 
-  addMarkerFailure: error => ({
+  addUserFailure: error => ({
     type: Types.ADD_FAILURE,
     payload: { error },
   }),

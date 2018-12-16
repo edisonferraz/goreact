@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import markers from './markers';
+import user from './users';
 
 export default combineReducers({
-  markers,
+  user,
 });
