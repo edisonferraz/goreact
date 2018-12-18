@@ -3,6 +3,7 @@ import api from 'services/api';
 
 import { Creators as UsersActions } from '../ducks/users';
 import { Creators as ModalActions } from '../ducks/modal';
+import { Creators as ToastActions } from '../ducks/toast';
 
 export function* addUser({ payload }) {
   try {
@@ -11,7 +12,10 @@ export function* addUser({ payload }) {
     const isDuplicated = yield select(state => state.users.data.find(user => user.id === data.id));
 
     if (isDuplicated) {
-      yield put(UsersActions.addUserFailure('Este usuário já foi adicionado em sua lista!'));
+      const message = 'Este usuário já foi adicionado em sua lista!';
+
+      yield put(UsersActions.addUserFailure(message));
+      yield put(ToastActions.warn(message));
     } else {
       const userData = {
         id: data.id,
@@ -23,8 +27,12 @@ export function* addUser({ payload }) {
 
       yield put(UsersActions.addUserSuccess(userData));
       yield put(ModalActions.hideModalRequest());
+      yield put(ToastActions.success('Usuário adicionado com sucesso!'));
     }
   } catch (error) {
-    yield put(UsersActions.addUserFailure('Erro ao adicionar o usuário'));
+    const message = 'Erro ao adicionar o usuário';
+
+    yield put(UsersActions.addUserFailure(message));
+    yield put(ToastActions.error(message));
   }
 }

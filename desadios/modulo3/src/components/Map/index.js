@@ -73,10 +73,6 @@ class Map extends Component {
 
     this.setState({
       userInput: '',
-      marker: {
-        latitude: null,
-        longitude: null,
-      },
     });
   };
 
