@@ -96,7 +96,7 @@ class Map extends Component {
 
   render() {
     const { viewport, userInput } = this.state;
-    const { showModal } = this.props;
+    const { users, showModal } = this.props;
 
     return (
       <Fragment>
@@ -107,7 +107,7 @@ class Map extends Component {
           mapboxApiAccessToken="pk.eyJ1IjoiZWRpc29uZmVycmF6IiwiYSI6ImNqcHF1OW5uaDBudzU0OG45ZXNydzBneDAifQ.f3DxVfRDPfVTXCwKcP7buQ"
           onViewportChange={vp => this.setState({ viewport: vp })}
         >
-          {this.props.users.data.map(u => (
+          {users.data.map(u => (
             <Marker
               key={u.id}
               latitude={u.latitude}
@@ -116,7 +116,7 @@ class Map extends Component {
               captureClick
             >
               <img
-                style={{  }}
+                style={{
                   borderRadius: 100,
                   width: 48,
                   height: 48,
@@ -147,7 +147,9 @@ class Map extends Component {
                 <button type="button" onClick={this.closeModal}>
                   Cancelar
                 </button>
-                <button type="submit">Adicionar</button>
+                <button type="submit">
+                  {users.loading ? <i className="fa fa-spinner fa-pulse" /> : 'Adicionar'}
+                </button>
               </Buttons>
             </form>
           </Modal>

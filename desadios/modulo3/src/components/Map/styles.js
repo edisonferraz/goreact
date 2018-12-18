@@ -12,7 +12,8 @@ export const Buttons = styled.div`
     color: #333;
     font-weight: bold;
     cursor: pointer;
-    padding: 10px;
+    padding: 0 10px;
+    height: 35px;
     width: 47%;
 
     &:hover {
@@ -27,6 +28,10 @@ export const Buttons = styled.div`
 
     &:hover {
       background-color: #218838;
+    }
+
+    .fa {
+      font-size: 20px;
     }
   }
 `;

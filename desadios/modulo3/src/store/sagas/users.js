@@ -1,4 +1,3 @@
-import { delay } from 'redux-saga';
 import { call, put, select } from 'redux-saga/effects';
 import api from 'services/api';
 
@@ -22,9 +21,8 @@ export function* addUser({ payload }) {
         longitude: payload.data.marker.longitude,
       };
 
-      yield put(ModalActions.hideModalRequest());
-      yield delay(200);
       yield put(UsersActions.addUserSuccess(userData));
+      yield put(ModalActions.hideModalRequest());
     }
   } catch (error) {
     yield put(UsersActions.addUserFailure('Erro ao adicionar o usuário'));
