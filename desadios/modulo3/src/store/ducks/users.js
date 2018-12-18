@@ -18,6 +18,17 @@ const INITIAL_STATE = {
 
 export default function users(state = INITIAL_STATE, action) {
   switch (action.type) {
+    case Types.ADD_REQUEST:
+      return { ...state, loading: true };
+    case Types.ADD_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        data: [...state.data, action.payload.data],
+      };
+    case Types.ADD_FAILURE:
+      return { ...state, loading: false, error: action.payload.error };
     default:
       return state;
   }
@@ -27,9 +38,9 @@ export default function users(state = INITIAL_STATE, action) {
  * Actions Creators
  */
 export const Creators = {
-  addUserRequest: user => ({
+  addUserRequest: data => ({
     type: Types.ADD_REQUEST,
-    payload: { user },
+    payload: { data },
   }),
 
   addUserSuccess: data => ({
