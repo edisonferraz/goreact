@@ -20,6 +20,7 @@ export function* addUser({ payload }) {
       const userData = {
         id: data.id,
         name: data.name,
+        login: data.login,
         avatar: data.avatar_url,
         latitude: payload.data.marker.latitude,
         longitude: payload.data.marker.longitude,
@@ -34,5 +35,15 @@ export function* addUser({ payload }) {
 
     yield put(UsersActions.addUserFailure(message));
     yield put(ToastActions.error(message));
+  }
+}
+
+export function* removeUser({ payload }) {
+  try {
+    const users = yield select(state => state.users.data.filter(user => user.id !== payload.id));
+    yield put(UsersActions.removeUserSuccess(users));
+    yield put(ToastActions.success('Usuário removido com sucesso!'));
+  } catch (error) {
+    yield put(ToastActions.error('Erro ao remover o usuário!'));
   }
 }

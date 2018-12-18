@@ -11,14 +11,15 @@ import { Buttons } from './styles';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import Modal from '../Modal';
+import UsersList from '../UsersList';
 
 class Map extends Component {
   state = {
     viewport: {
       width: window.innerWidth,
       height: window.innerHeight,
-      latitude: -23.5439948,
-      longitude: -46.6065452,
+      latitude: 40.41687479058639,
+      longitude: -3.7034279685259093,
       zoom: 14,
     },
     userInput: '',
@@ -52,6 +53,8 @@ class Map extends Component {
   handleMapClick = (e) => {
     const [longitude, latitude] = e.lngLat;
     const { showModalRequest } = this.props;
+
+    console.log(longitude, latitude);
 
     showModalRequest();
     this.userInput.focus();
@@ -123,6 +126,8 @@ class Map extends Component {
             </Marker>
           ))}
         </MapGL>
+
+        <UsersList />
 
         {showModal && (
           <Modal close={this.closeModal}>

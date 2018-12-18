@@ -6498,9 +6498,9 @@ mixin-object@^2.0.1:
     is-extendable "^0.1.1"
 
 mjolnir.js@^2.0.0:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/mjolnir.js/-/mjolnir.js-2.0.1.tgz#06c19bea397634d9eb7a5b5e3860eb251b3478bd"
-  integrity sha512-//lnL0f01D4nlzU/ORrBuQm62K2fv6coNb1f5j1vCN+TQkkG9Ede17O+gqGYajXTm0kl+tqPXbhkqSKOGLUCtA==
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/mjolnir.js/-/mjolnir.js-2.0.2.tgz#bd8f4ee36ce8a05d9643e3b4738436c1df2e3a04"
+  integrity sha512-xNWPIHATqMAgxv3KO1R/c6XfxRJ0eNNlEHXuUKEgN2S3NjuSxQ1Evvqu5DkNdJ7SWwGDpmenUUpi5/Vak+f3+Q==
   dependencies:
     "@babel/runtime" "^7.0.0"
     hammerjs "^2.0.8"
@@ -6558,9 +6558,9 @@ mute-stream@0.0.7:
   integrity sha1-MHXOk7whuPq0PhvE2n6BFe0ee6s=
 
 nan@^2.9.2:
-  version "2.12.0"
-  resolved "https://registry.yarnpkg.com/nan/-/nan-2.12.0.tgz#9d443fdb5e13a20770cc5e602eee59760a685885"
-  integrity sha512-zT5nC0JhbljmyEf+Z456nvm7iO7XgRV2hYxoBtPpnyp+0Q4aCoP6uWNn76v/I6k2kCYNLWqWbwBWQcjsNI/bjw==
+  version "2.12.1"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.12.1.tgz#7b1aa193e9aa86057e3c7bbd0ac448e770925552"
+  integrity sha512-JY7V6lRkStKcKTvHO5NVSQRv+RV+FIL5pvDoLiAtSL9pKlC5x9PKQcZDsq7m4FO4d57mkhC6Z+QhAh3Jdk5JFw==
 
 nanomatch@^1.2.9:
   version "1.2.13"
@@ -6689,9 +6689,9 @@ node-pre-gyp@^0.10.0:
     tar "^4"
 
 node-releases@^1.0.0-alpha.11, node-releases@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.1.tgz#8fff8aea1cfcad1fb4205f805149054fbf73cafd"
-  integrity sha512-2UXrBr6gvaebo5TNF84C66qyJJ6r0kxBObgZIDX3D3/mt1ADKiHux3NJPWisq0wxvJJdkjECH+9IIKYViKj71Q==
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.2.tgz#93c17fba5eec8650ad908de5433fa8763baebe4d"
+  integrity sha512-j1gEV/zX821yxdWp/1vBMN0pSUjuH9oGUdLCb4PfUko6ZW7KdRs3Z+QGGwDUhYtSpQvdVVyLd2V0YvLsmdg5jQ==
   dependencies:
     semver "^5.3.0"
 
@@ -8324,9 +8324,9 @@ react-scripts@2.1.1:
     fsevents "1.2.4"
 
 react-toastify@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-4.5.0.tgz#b8e05f0f301ca59a60a58677de69ddba9aa8fb09"
-  integrity sha512-wRlxj9h/kQRA+x0YIvfHFAcxsIls7YwvhnmLy9R1TNcvXYWVs/3+X7iN099Si+/EfRFAnAKH9HXmEGIDoEjxGA==
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-4.5.1.tgz#6379d779898107799bf5d08434a4c308721254dd"
+  integrity sha512-6qWSL7WCwGQ965TgBXYgrxucA85J3CUJRllJ6CHd5+DnA+LJZJAMVUYAOT2rcTMUpcB7pjn3EwknorG2gL7fhA==
   dependencies:
     classnames "^2.2.6"
     prop-types "^15.6.0"
